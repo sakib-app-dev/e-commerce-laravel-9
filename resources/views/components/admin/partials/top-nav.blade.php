@@ -161,8 +161,22 @@
                         </a>
                         <ul class="dropdown-menu drp-mnu">
                             <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-                            <li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-                            <li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                            <li> <a href="#">
+                                <i class="fa fa-cog"></i> 
+                                Profile
+                                </a> 
+                            </li> 
+                            <hr>
+                            <li> 
+                                
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                <i class="fa fa-sign-out">Log Out</i>
+                                    </a>
+                                </form>
+                            </li>
                         </ul>
                     </li>
                 </ul>
