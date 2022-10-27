@@ -17,7 +17,7 @@
             </a>
         </li>
         <li>
-            <a href="index.html">
+            <a href="{{route('category.index')}}">
                 <i class="fa fa-list-ul nav_icon"></i>
                 <span class="nav-text">
                 Products Category
@@ -33,7 +33,7 @@
             </a>
         </li>
         <li>
-            <a href="index.html">
+            <a href="{{route('product.index')}}">
                 
                 <i class="icon-table nav-icon"></i>
                 <span class="nav-text">
