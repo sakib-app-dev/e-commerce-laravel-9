@@ -26,6 +26,10 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
 Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+Route::get('/admin/users',[AdminController::class,'users'])->name('admin.users_list');
+Route::get('/admin/{user}/users',[AdminController::class,'changeRole'])->name('change_role');
+Route::patch('/admin/{user}/update',[AdminController::class,'updateRole'])->name('update_role');
+
 
 });
 

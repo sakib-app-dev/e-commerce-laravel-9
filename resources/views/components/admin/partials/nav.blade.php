@@ -9,7 +9,7 @@
             </a>
         </li>
         <li>
-            <a href="index.html">
+            <a href="{{ Route('admin.users_list') }}">
                 <i class="fa fa-user nav_icon"></i>
                 <span class="nav-text">
                 Users
@@ -85,7 +85,7 @@
     </ul>
     <ul class="logout">
         <li>
-        <a href="login.html">
+        <a href="{{route('logout')}}">
         <i class="icon-off nav-icon"></i>
         <span class="nav-text">
         Logout
