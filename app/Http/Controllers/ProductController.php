@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -39,13 +40,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create([
+        $product=Product::create([
             'title'=>$request->title,
             'description'=>$request->description,
             'price'=>$request->price
 
          
            ]);
+          
+        if($request->has('images')){
+            $images=$request->file('images');
+
+            foreach ($images as $image) {
+                $imageName=date('Y-m-d').'-product-image-'.time().rand(1,100).'.'.$image->extension();
+                $image->move(storage_path('app/public/images'), $imageName);
+
+                
+
+                Image::create([
+                    'product_id'=>$product->id,
+                    'image'=>$imageName,
+                ]);
+                //storage->app->public->images(folder create)
+                // php artisan storage:link
+            }
+        }
     
            return redirect()->route('product.index')->withMessage('Created Successfully!');
     }

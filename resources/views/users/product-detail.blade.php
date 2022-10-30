@@ -13,9 +13,9 @@
                 <img class="capimg" src="{{ asset('assets/users/') }}/images/cap.jpg" alt="cap">
             </div>
             <div class="offset-md-2 col-md-6">
-             <h4>Cap for man</h4>
-             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, illum earum ratione ad, corporis sit assumenda, quos voluptate cupiditate veniam iste? Iure perspiciatis quas iste corporis unde nemo repellendus. Labore.</p>
-             <h2 class="mt-5" style="color:orange ;">56 BDT</h2>
+             <h4>{{$product->title}}</h4>
+             <p>{{$product->description}}</p>
+             <h2 class="mt-5" style="color:orange ;">{{$product->price}} BDT</h2>
              <form action="">
                 <div class="quantity"><p class="mt-5">Quantity: </p>
                     <div class="button">   <button class="pm">-</button> <input type="number" style="width:60px;height:48px;text-align: center;" step="1" min="1" value="1" name="" id="" col="4"> <button class="pm">+</button></div> </div>

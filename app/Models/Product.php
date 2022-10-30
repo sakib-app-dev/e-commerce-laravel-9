@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory,SoftDeletes;
-    public $timestamps = false;
+    
     protected $guarded=[];
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
 }

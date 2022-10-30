@@ -39,7 +39,7 @@ Route::prefix('/users')->name('users.')->group(function(){
     
     Route::prefix('/prouct')->name('product.')->group(function(){
         Route::get('/list', [UserController::class, 'productList'])->name('list');
-        Route::get('/detail', [UserController::class, 'productDetail'])->name('detail');
+        Route::get('/details/{id}', [UserController::class, 'productDetails'])->name('detail');
     });
 
     Route::get('/thank-you', [UserController::class, 'thankYou'])->name('thank-you');

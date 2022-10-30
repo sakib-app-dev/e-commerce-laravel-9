@@ -30,6 +30,8 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('about') }}">About Us</a>
             </li>
+            
+            @auth
             <li class="nav-item">
               <a class="nav-link" href="about-us.html">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -37,13 +39,26 @@
                 
               </a>
             </li>
+            
+            <li class="nav-item "> 
+              <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <input type="hidden">
+                  <a class="nav-link" style="color:white;text-decoration:none;padding-top:10px" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                      this.closest('form').submit();">Logout<i class="fa-solid fa-power-off ms-2"></i></a>
+                                      
+              </form>
+              </li>
+                
+            @else
+            
             <li class="nav-item">
               <a class=" nav-link   me-2"  style="color: white;" href="{{ route('login') }}">Log-in</a>
             </li>
             <li class="nav-item">
               <a class=" nav-link  " style="color: white;" href="{{ route('register') }}">Register</a>
             </li>
-
+            @endauth
             
             
           </ul>

@@ -100,158 +100,31 @@
                       <h1 style="text-align: center">Feature Products</h1>
                       <div class="offset-md-4 col-md-4 mb-3" style="border-bottom: 3px solid orangered"></div>
                       <div class="row">
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p1.jpg" class="card-img-top" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">T-Shirt</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="product-detail.html" class="btn btn-primary">BUY NOW</a>
-                                  </div>
+                        @foreach ($products as $product)
+                        
+                    
+                        <div class="col-md-3 my-3">
+                            <div class="card" style="width: 18rem;">
+                              
+                                <img src="{{ asset('storage/images/2022-10-28-product-image-16669328426.jpg') }}" class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                  <h5 class="card-title">{{$product->title}}</h5>
+                                  <p class="card-text fs-4 fw-bold">{{$product->price}}BDT</p>
+                                  <p>
+                                    <span>
+                                      <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                                      <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                                      <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                                      <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                                      <i class="fa fa-star text-warning" aria-hidden="true"></i>
+                                    </span>
+                                  </p>
+                                  <a href="{{ route('users.product.detail',$product->id) }}" class="btn btn-primary">Buy Now</a>
                                 </div>
-                          </div>
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p2.jpg" class="card-img-top" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">T-Shirt</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="#" class="btn btn-primary">BUY NOW</a>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p3.jpg" class="card-img-top" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">T-Shirt</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="#" class="btn btn-primary">BUY NOW</a>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p4.jpg" class="card-img-top" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">T-Shirt</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="#" class="btn btn-primary">BUY NOW</a>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p5.jpg" class="card-img-top img-fluid" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">T-Shirt</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="#" class="btn btn-primary">BUY NOW</a>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p6 .jpg" class="card-img-top img-fluid" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">T-Shirt</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="#" class="btn btn-primary">BUY NOW</a>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p7.jpg" class="card-img-top img-fluid" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">T-Shirt</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="#" class="btn btn-primary">BUY NOW</a>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="col-md-3 py-1">
-                              <div class="card" style="width: 17rem;">
-                                  <img src="{{ asset('assets/users/') }}/images/p8.jpg" class="card-img-top img-fluid" alt="...">
-                                  <div class="card-body text-center">
-                                    <h5 class="card-title">50$</h5>
-                                    <p class="card-text">Pant</p>
-                                    <p>
-                                      <span>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-                                      </span>
-                                    </p>
-                                    <a href="#" class="btn btn-primary">BUY NOW</a>
-                                  </div>
-                                </div>
-                          </div>
+                              </div>
+                        </div>
+                        @endforeach
+                          
                       </div>
                   </div>
               </section>

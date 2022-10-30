@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function home(){
-        return view('users.index');
+        $products=Product::all();
+        return view('users.index',compact('products'));
     }
     public function about(){
         return view('users.about-us');
@@ -20,10 +22,15 @@ class UserController extends Controller
     }
 
     public function productList(){
-        return view('users.product-list');
+        $products=Product::all();
+        
+        
+        return view('users.product-list',compact('products'));
     }
-    public function productDetail(){
-        return view('users.product-detail');
+    public function productDetails($id){
+        // dd($id);
+        $product=Product::find($id);
+        return view('users.product-detail',compact('product'));
     }
     public function thankYou(){
         return view('users.thank-you');

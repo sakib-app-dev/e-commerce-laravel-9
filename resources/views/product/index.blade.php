@@ -35,6 +35,7 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>Total Images</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -45,6 +46,7 @@
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->price }}</td>
+                    <td>{{ $product->images->count() }}</td>
                     <td>
                         <a class="btn btn-sm btn-info" href="{{ route('product.show', $product->id) }}">Show</a>
                         | <a class="btn btn-sm btn-warning" href="{{route('product.edit',$product->id)}}">Edit</a>  |
