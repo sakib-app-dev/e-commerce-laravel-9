@@ -11,7 +11,10 @@ class Product extends Model
     use HasFactory,SoftDeletes;
     
     protected $guarded=[];
+    // public function images(){
+    //     return $this->hasMany(Image::class);
+    // }
     public function images(){
-        return $this->hasMany(Image::class);
+        return $this->morphMany(Image::class,'imageable');
     }
 }

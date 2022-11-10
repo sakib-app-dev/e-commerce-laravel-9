@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             // $table->foreignIdFor(Product::class);
+            $table->morphs('imageable');
             $table->unsignedBigInteger('product_id')->index()->nullable();
             $table->string('image');
             $table->timestamps();

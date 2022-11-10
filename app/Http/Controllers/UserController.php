@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function home(){
+        
         $products=Product::all();
         return view('users.index',compact('products'));
     }
