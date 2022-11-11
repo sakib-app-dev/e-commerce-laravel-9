@@ -13,4 +13,9 @@ class Image extends Model
     //     return $this->belongsTo(Product::class);
     // }
 
+    public function products()
+    {
+        return $this->morphTo(Product::class);
+    }
+
 }

@@ -10,6 +10,7 @@ class UserController extends Controller
     public function home(){
         
         $products=Product::all();
+        
         return view('users.index',compact('products'));
     }
     public function about(){
@@ -23,8 +24,12 @@ class UserController extends Controller
     }
 
     public function productList(){
+        if($keyword = request('Keyword')){
+            // dd($keyword);
+            $products = Product::where('title','LIKE', "%$keyword%")->get();
+        }else{
         $products=Product::all();
-        
+        }
         
         return view('users.product-list',compact('products'));
     }

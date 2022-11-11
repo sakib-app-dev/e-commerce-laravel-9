@@ -16,7 +16,7 @@ Route::prefix('/users')->name('users.')->group(function(){
     Route::get('/invoice', [UserController::class, 'invoice'])->name('invoice');
 
     
-    Route::prefix('/prouct')->name('product.')->group(function(){
+    Route::prefix('/product')->name('product.')->group(function(){
         Route::get('/list', [UserController::class, 'productList'])->name('list');
         Route::get('/details/{id}', [UserController::class, 'productDetails'])->name('detail');
     });

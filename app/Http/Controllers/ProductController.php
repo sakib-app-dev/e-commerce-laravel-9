@@ -56,11 +56,14 @@ class ProductController extends Controller
                 $image->move(storage_path('app/public/images'), $imageName);
 
                 
+                $product->images()->create(['image'=>$imageName]);
 
+                /*
                 Image::create([
                     'product_id'=>$product->id,
                     'image'=>$imageName,
                 ]);
+                */
                 //storage->app->public->images(folder create)
                 // php artisan storage:link
             }

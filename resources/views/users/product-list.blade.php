@@ -30,7 +30,7 @@
                                     <i class="fa fa-star text-warning" aria-hidden="true"></i>
                                   </span>
                                 </p>
-                                <a href="{{ route('users.product.detail') }}" class="btn btn-primary">Buy Now</a>
+                                <a href="{{ route('users.product.detail',$product->id) }}" class="btn btn-primary">Buy Now</a>
                               </div>
                             </div>
                       </div>

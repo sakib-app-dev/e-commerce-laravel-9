@@ -18,11 +18,11 @@ return new class extends Migration
             $table->id();
             // $table->foreignIdFor(Product::class);
             $table->morphs('imageable');
-            $table->unsignedBigInteger('product_id')->index()->nullable();
+            // $table->unsignedBigInteger('product_id')->index()->nullable();
             $table->string('image');
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
+            // $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
