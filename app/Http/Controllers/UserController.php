@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -37,6 +38,11 @@ class UserController extends Controller
         // dd($id);
         $product=Product::find($id);
         return view('users.product-detail',compact('product'));
+    }
+
+    public function categoryProductList(Category $category){
+        // dd($category);
+        return view('users.category-product-list',compact('category'));
     }
     public function thankYou(){
         return view('users.thank-you');

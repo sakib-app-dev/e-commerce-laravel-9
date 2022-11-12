@@ -11,6 +11,16 @@
                 <input name="title" type="text" class="form-control" id="title" >
             </div>
             <div class="mb-3">
+                <label for="category" class="form-label">Category:</label>
+                <select class="form-select form-control" name="category">
+                    <option selected disabled>select category</option>               
+                    @foreach ($categories as $key=>$category)
+                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                    
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="description" class="form-label">Description:</label>
                 <input name="description" type="text" class="form-control" id="description">
             </div>

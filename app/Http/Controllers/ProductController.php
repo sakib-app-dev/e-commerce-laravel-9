@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -29,7 +30,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $categories=Category::all();
+        // echo"<pre>";
+        // print_r($categories);
+        // exit();
+        return view('product.create',compact('categories'));
     }
 
     /**
@@ -42,6 +47,7 @@ class ProductController extends Controller
     {
         $product=Product::create([
             'title'=>$request->title,
+            'category_id'=>$request->category,
             'description'=>$request->description,
             'price'=>$request->price
 

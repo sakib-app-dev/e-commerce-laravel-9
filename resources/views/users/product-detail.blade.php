@@ -10,7 +10,9 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-4">
-                <img class="capimg" src="{{ asset('assets/users/') }}/images/cap.jpg" alt="cap">
+              @foreach($product->images as $image)
+              <img src="{{ asset('storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+              @endforeach
             </div>
             <div class="offset-md-2 col-md-6">
              <h4>{{$product->title}}</h4>

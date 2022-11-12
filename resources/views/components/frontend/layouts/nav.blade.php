@@ -77,16 +77,11 @@
       </div>
         
           
-          <ul >
-            <li><a class="dropdown-item" href="#">Fasion</a></li>
-            <li><a class="dropdown-item" href="#">Man</a></li>
-            <li><a class="dropdown-item" href="#">Woman</a></li>
-            <li><a class="dropdown-item" href="#">Fasion</a></li>
-            <li><a class="dropdown-item" href="#">Man</a></li>
-            <li><a class="dropdown-item" href="#">Woman</a></li>
-            <li><a class="dropdown-item" href="#">Fasion</a></li>
-            <li><a class="dropdown-item" href="#">Man</a></li>
-            <li><a class="dropdown-item" href="#">Woman</a></li>
+          <ul>
+            @foreach($categories as $category)
+            <li class="" style=""><a class="dropdown-item" href="{{ route('category.product.index',$category->id) }}">{{$category->title}}</a></li>
+            <hr>
+            @endforeach
           </ul>
       
       </div>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'home'])->name('home');
 Route::get('/about', [UserController::class, 'about'])->name('about');
-
+Route::get('/categories/{category}/product',[UserController::class,'categoryProductList'])->name('category.product.index');
 Route::prefix('/users')->name('users.')->group(function(){
 
     Route::get('/checkout', [UserController::class, 'checkout'])->name('checkout');
