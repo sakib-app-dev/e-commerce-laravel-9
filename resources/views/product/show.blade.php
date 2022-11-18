@@ -17,10 +17,17 @@
             </a>
         </div>
     </div>
-
-    <h1 style="margin-left:10%">Title: {{ $product->title }}</h1>
-    <p style="margin-left:10%">Description:{{$product->description}}</p>
-    <p style="margin-left:10%">Price:{{$product->price}}</p>
+    <div class="col-md-4">
+        @foreach($product->images as $image)
+            <img src="{{ asset('public/storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+        @endforeach
+    </div>
+    <div class="col-md-6">
+         <h1 style="margin-left:10%">Title: {{ $product->title }}</h1>
+        <p style="margin-left:10%">Description:{{$product->description}}</p>
+        <p style="margin-left:10%">Price:{{$product->price}}</p>
+    </div>
+   
     </div>
 
 </x-admin.master>

@@ -44,7 +44,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $product->title }}</td>
-                    <td>{{ $product->description }}</td>
+                    <td>{{ Str::limit($product->description,50) }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->images->count() }}</td>
                     <td>

@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
     public function home(){
         
-        $products=Product::all();
+        $products=Product::latest()->paginate(12);
         
         return view('users.index',compact('products'));
     }
@@ -18,7 +22,15 @@ class UserController extends Controller
         return view('users.about-us');
     }
     public function checkout(){
-        return view('users.checkout');
+        $user=auth()->user()->id;
+        $userCart=Cart::all()->where('user_id','=',$user);
+        // echo"<pre>";
+        // print_r($userCart);
+        // exit();
+        
+        
+
+        return view('users.checkout',compact('userCart'));
     }
     public function invoice(){
         return view('users.invoice');
@@ -46,6 +58,50 @@ class UserController extends Controller
     }
     public function thankYou(){
         return view('users.thank-you');
+    }
+
+    public function addToCart(Product $product,Request $req){
+
+        // dd($id);
+        // $orderedBy = auth()->user()->name;
+        $prductName=$product->title;
+        $productPrice=$product->price;
+        $qty=$req->qty;
+
+        Cart::create([
+            'user_id'=>auth()->user()->id,
+            'product_name'=>$prductName,
+            'price'=>$productPrice,
+            'qty'=>$qty,
+
+        ]);
+        
+
+        return redirect()->back()->withMessage('This product successfully added to your cart');
+    }
+    public function invoicePDF(){
+        $user=auth()->user()->id;
+        $userInfo=User::find($user);
+        $userCart=Cart::all()->where('user_id','=',$user);
+        $pdf = Pdf::loadView('users.invoice',compact('userCart','userInfo'));
+        return $pdf->download('invoice.pdf');
+    }
+
+
+    public function commentStore(Product $product,Request $req){
+
+        
+       
+
+        Comment::create([
+            'commented_by'=>auth()->user()->id,
+            'product_id'=>$product->id,
+            'comment'=>$req->comment, 
+
+        ]);
+        
+
+        return redirect()->back();
     }
 
     public function login(){

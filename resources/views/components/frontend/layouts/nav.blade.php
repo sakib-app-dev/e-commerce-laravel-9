@@ -35,9 +35,9 @@
             
             @auth
             <li class="nav-item">
-              <a class="nav-link" href="about-us.html">
+              <a class="nav-link" href="{{ route('users.checkout') }}">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span class=class="badge bg-warning">4</span>
+                <span class=class="badge bg-warning">{{ $cartCount }}</span>
                 
               </a>
             </li>

@@ -1,7 +1,20 @@
-<x-frontend.master>
-  <x-slot:title>
-    Invoice
-  </x-slot>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Invoice PDF Download</title>
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    
+
 
 
     <!-- invoice -->
@@ -10,35 +23,46 @@
             <div class="col-md-12">
                 <h4 class="text-center">Billing Address</h4>
                 <hr style="background-color: gray;">
-                <p>Customer Name</p>
+                <p>Customer Name: {{ $userInfo->name }}</p>
                 <p class="">Customer Address</p>
                 <p>Customer Phone</p>
                 <p>Customer Email</p>
             </div>
         </div>
         <div class="row">
-            <table class="table table-bordered">
+            <table align="center" style="width:100%">
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Amount</th>
                 </tr>
+                @php
+                    $total=0;
+                @endphp
+                
+                @foreach ($userCart as $item)
+                    
+                
                 <tr>
-                    <td>Shirt</td>
-                    <td>2</td>
-                    <td>300</td>
-                    <td>600</td>
+                    <td>{{ $item->product_name }}</td>
+                    <td>{{ $qty=$item->qty }}</td>
+                    <td>{{ $price=$item->price }}</td>
+                    <td>{{ $amount=$qty*$price }}</td>
                 </tr>
-                <tr>
-                    <td>Shirt</td>
-                    <td>2</td>
-                    <td>300</td>
-                    <td>600</td>
-                </tr>
+
+                @php
+                
+                $subTotal=$amount+$total;
+                $total=$subTotal+10;
+                @endphp
+
+                @endforeach
+                
+                
                 <tr>
                     <th colspan="3">Sub-Total</th>
-                    <td>1200</td>
+                    <td>{{ $subTotal }}</td>
                 </tr>
                 <tr>
                     <th colspan="3">Bkash Charge</th>
@@ -55,8 +79,9 @@
 
             </table>
         </div>
-        <button class="btn btn-primary " type="download"> Download</button>
-        <button class="btn btn-success " type="download"> Print Now</button>
+        
     </div>
-  </x-frontend.master>
 
+
+</body>
+</html>

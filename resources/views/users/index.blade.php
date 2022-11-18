@@ -14,21 +14,21 @@
                     </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img height="250px" src="{{ asset('assets/users/') }}/images/banner1.jpg" class="d-block w-100" alt="...">
+                        <img height="250px" src="{{ asset('public/assets/users/') }}/images/banner1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block text-start mb-5  ">
                           <p class="text-start fs-3 fw-bold ">70% Off For Friday</p>
                                             <a href="product-list.html" target="_blank"  class="text-white fw-bold btn btn-lg btn-warning p-2">Shop Now</a>
                         </div>
                       </div>
                       <div class="carousel-item ">
-                        <img height="250px" src="{{ asset('assets/users/') }}/images/banner2.jpg" class="d-block w-100" alt="...">
+                        <img height="250px" src="{{ asset('public/assets/users/') }}/images/banner2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block text-start mb-5">
                           <p class="text-start fs-3 fw-bold text-white  ">70% Off For Friday</p>
                                             <a href="product-list.html" target="_blank"  class="text-dark fw-bold btn btn-lg btn-warning p-2">Shop Now</a>
                         </div>
                       </div>
                       <div class="carousel-item">
-                        <img height="250px" src="{{ asset('assets/users/') }}/images/banner3.jpg" class="d-block w-100" alt="...">
+                        <img height="250px" src="{{ asset('public/assets/users/') }}/images/banner3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block text-start mb-5">
                           <p class="text-start fs-3 fw-bold  text-white">70% Off For Friday</p>
                                             <a href="product-list.html" target="_blank"  class="text-dark fw-bold btn btn-lg btn-warning p-2">Shop Now</a>
@@ -61,7 +61,7 @@
                                 <div class="card-body text-center">
                                   <h5 class="card-title">Card title</h5>
                                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="product-detail.html" class="btn btn-primary">BUY NOW</a>
+                                  {{-- <a href="product-detail.html" class="btn btn-primary">BUY NOW</a> --}}
                                 </div>
                               </div>
                         </div>
@@ -71,7 +71,7 @@
                                 <div class="card-body text-center">
                                   <h5 class="card-title">Card title</h5>
                                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="#" class="btn btn-primary">BUY NOW</a>
+                                  {{-- <a href="#" class="btn btn-primary">BUY NOW</a> --}}
                                 </div>
                               </div>
                         </div>
@@ -81,7 +81,7 @@
                                 <div class="card-body text-center">
                                   <h5 class="card-title">Card title</h5>
                                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="#" class="btn btn-primary">BUY NOW</a>
+                                  {{-- <a href="#" class="btn btn-primary">BUY NOW</a> --}}
                                 </div>
                               </div>
                         </div>
@@ -105,9 +105,12 @@
                     
                         <div class="col-md-3 my-3">
                             <div class="card" style="width: 18rem;">
-                              @foreach($product->images as $image)
-                                <img src="{{ asset('storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
-                              @endforeach
+                              
+                                @foreach($product->images as $image)
+                                    <img src="{{ asset('public/storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+                                @endforeach
+                              
+                              
                                 <div class="card-body text-center">
                                   <h5 class="card-title">{{$product->title}}</h5>
                                   <p class="card-text fs-4 fw-bold">{{$product->price}}BDT</p>
@@ -125,7 +128,7 @@
                               </div>
                         </div>
                         @endforeach
-                          
+                          {{ $products->links() }}
                       </div>
                   </div>
               </section>

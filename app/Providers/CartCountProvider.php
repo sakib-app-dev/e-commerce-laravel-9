@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Support\Facades\View;
+// use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
-use App\View\Composers\FrontendComposer;
 use App\View\Composers\CartCountComposer;
 
-class ViewServiceProvider extends ServiceProvider
+
+class CartCountProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -25,9 +27,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // dd('check boot');
-        View::composer('components.frontend.layouts.nav', FrontendComposer::class);
-        View::composer('components.frontend.layouts.nav', CartCountComposer::class);
-        // return view("components.frontend.layouts.nav");
+        dd('cart');
+        // View::composer('components.frontend.layouts.nav', CartCountComposer::class);
     }
 }

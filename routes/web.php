@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'home'])->name('home');
 Route::get('/about', [UserController::class, 'about'])->name('about');
+
 Route::get('/categories/{category}/product',[UserController::class,'categoryProductList'])->name('category.product.index');
 Route::prefix('/users')->name('users.')->group(function(){
 
     Route::get('/checkout', [UserController::class, 'checkout'])->name('checkout');
-    Route::get('/invoice', [UserController::class, 'invoice'])->name('invoice');
+    Route::get('/invoice', [UserController::class, 'invoicePDF'])->name('invoice');
 
     
     Route::prefix('/product')->name('product.')->group(function(){
@@ -22,10 +23,16 @@ Route::prefix('/users')->name('users.')->group(function(){
     });
 
     Route::get('/thank-you', [UserController::class, 'thankYou'])->name('thank-you');
+    Route::post('/add-to-cart/{product}/product', [UserController::class, 'addToCart'])->name('add-to-cart');
+    Route::post('/product/{product}/comment', [UserController::class, 'commentStore'])->name('products.comment.store');
     // Route::get('/login', [UserController::class, 'login'])->name('login');
     // Route::get('/register', [UserController::class, 'register'])->name('register');
 
 
+});
+
+Route::fallback(function(){
+    return view('users.404');
 });
 
 
@@ -61,8 +68,10 @@ Route::get('/product/{id}/delete', [ProductController::class, 'destroy'])->name(
 Route::get('/product-trash', [ProductController::class, 'trash'])->name('product.trash');
 Route::patch('/product/{id}',[ProductController::class,'restore'])->name('product.restore');
 Route::delete('/product/{id}',[ProductController::class,'delete'])->name('product.delete');
-});
 
-Route::fallback(function(){
-    return view('admin.error');
+
+// Route::fallback(function(){
+//     return view('admin.error');
+// });
+
 });

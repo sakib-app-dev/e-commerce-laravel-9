@@ -65,27 +65,33 @@
                         <th>Product Name</th>
                         <th>Qty</th>
                         <th>Price</th>
+                        <th>Amount</th>
                     </tr>
+                    @php
+                        $total=0;
+                    @endphp
+                    
+                    @foreach ($userCart as $item)
+                        
+                    
                     <tr>
-                        <td>Shirt</td>
-                        <td>1</td>
-                        <td>500</td>
+                        <td>{{ $item->product_name }}</td>
+                        <td>{{ $qty=$item->qty }}</td>
+                        <td>{{ $price=$item->price }}</td>
+                        <td>{{ $amount=$qty*$price }}</td>
                     </tr>
-                    <tr>
-                        <td>Shirt</td>
-                        <td>1</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>Shirt</td>
-                        <td>1</td>
-                        <td>500</td>
-                    </tr>
+
+                    @php
+                    
+                    $total=$amount+$total; 
+                    @endphp
+
+                    @endforeach
                     
                     <tr>
                         
-                        <th colspan="2">Total (Taka)</th>
-                        <th>1500</th>
+                        <th colspan="3">Total (Taka)</th>
+                        <th>{{ $total }}</th>
                     </tr>
                 </table>
                 <div class="d-grid gap-2">

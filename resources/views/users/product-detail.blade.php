@@ -11,73 +11,61 @@
         <div class="row mt-5">
             <div class="col-md-4">
               @foreach($product->images as $image)
-              <img src="{{ asset('storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+              <img src="{{ asset('public/storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
               @endforeach
             </div>
             <div class="offset-md-2 col-md-6">
              <h4>{{$product->title}}</h4>
              <p>{{$product->description}}</p>
              <h2 class="mt-5" style="color:orange ;">{{$product->price}} BDT</h2>
-             <form action="">
-                <div class="quantity"><p class="mt-5">Quantity: </p>
-                    <div class="button">   <button class="pm">-</button> <input type="number" style="width:60px;height:48px;text-align: center;" step="1" min="1" value="1" name="" id="" col="4"> <button class="pm">+</button></div> </div>
-                   <div class="last mt-5">
-                       
-                       <a href="{{ route('users.checkout') }}" class="btn btn-primary btn-lg">Buy Now</a>
-                       <a href="checkout.html" class="btn btn-primary btn-lg">Add to Cart</a>
-                       
-                   </div>
+             <x-forms.message />
+              <form action="{{ route('users.add-to-cart',$product->id) }}" method="POST">  
+                <div class="quantity d-flex">
+                  <p class="mt-5">Quantity: </p>
+                    <div class="" style="margin:40px 30px">
+                      
+                        @csrf
+                        <input type="number" name="qty" style="width:60px;height:48px;text-align: center;" step="1" min="1" value="1" name="" id="" col="4">
+                      
+                    </div> 
+                </div>
+                @auth
+                <div class="last mt-5">
+                    
+                  <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>
+                  <a href="{{ route('users.checkout') }}" class="btn btn-primary btn-lg">Buy Now</a>
+                  
+                </div>
+                @endauth
+              </form>
 
-             </form>
+             
              
 
             </div>
-        </div>
-        <div class="row mt-5">
-            <h3>Related Products:</h3>
-        </div>
-        <div class="row mt-3 mx-auto">
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('assets/users/') }}/images/cap.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                  </div>
+            <div class="offset-md-1 col-md-10">
+              <h1>Comments:</h1>
+              <p>
+                <form action="{{ route('users.products.comment.store',$product->id) }}" method="POST">
+                  @csrf
+                  <x-forms.textarea name="comment" />
+                  <button type="submit" class="btn btn-primary">Comment</button>
+                </form>
+              </p>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                  <img src="{{ asset('assets/users/') }}/images/cap.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                  <img src="{{ asset('assets/users/') }}/images/cap.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                  <img src="{{ asset('assets/users/') }}/images/cap.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                  </div>
+            <div class="offset-md-1 col-md-10">
+              @foreach ($product->comments as $comment)
+                <div class="bg-light border border-primary rounded" >
+                  <h6>{{ $comment->commentedBy->name.' ' }}<sub><small><mark>{{ $comment->created_at->diffForHumans() }}</mark></small></sub></h6><hr>
+                  <p class="">{{ $comment->comment }}</p>
+                </div>
+                  
+              @endforeach
+              <h5></h5>
             </div>
         </div>
+        
+        
     </div>
 
 
