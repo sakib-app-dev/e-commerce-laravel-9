@@ -4,22 +4,29 @@
     <br>
     <div style="margin:0px 150px 0px 150px;">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom ">
-            <h1 class="h2 mx-auto">Products</h1>
-            <div class="btn-toolbar mb-2 mb-md-0 text-right">
-                <a href="{{route('product.create')}}">
-                <button type="button" class="btn btn-primary">
-                    <span data-feather="plus"></span>
-                    Add New
-                </button>
-                </a>
-                <a href="{{route('product.trash')}}">
-                <button type="button" class="btn btn-danger">
-                    <span data-feather="plus"></span>
-                   Trash
-                </button>
-                </a>
-                
-            </div>
+                <div class="col-md-4">
+
+                    <h1 class="h2 mx-auto">Products</h1>
+                </div>
+                <div class="col-md-8">
+
+                    <div class="btn-toolbar mb-2 mb-md-0 text-right">
+                        <a href="{{route('product.create')}}">
+                        <button type="button" class="btn btn-primary">
+                            <span data-feather="plus"></span>
+                            Add New
+                        </button>
+                        </a>
+                        <a href="{{route('product.trash')}}">
+                        <button type="button" class="btn btn-danger">
+                            <span data-feather="plus"></span>
+                           Trash
+                        </button>
+                        </a>
+                        
+                    </div>
+                </div>
+            
         </div>
 
         @if(session('message'))
@@ -35,14 +42,14 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Price</th>
-                    <th>Total Images</th>
+                    <th>Images</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($products as $product)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $serialNo++ }}</td>
                     <td>{{ $product->title }}</td>
                     <td>{{ Str::limit($product->description,50) }}</td>
                     <td>{{ $product->price }}</td>
@@ -57,6 +64,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $products->links() }}
 
 
 

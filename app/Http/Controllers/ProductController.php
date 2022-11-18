@@ -16,11 +16,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $paginatePerPage=5;
+        $serialNo=1;
+        if ($pageNumber = request('page')) {
+            $serialNo=$paginatePerPage*($pageNumber-1)+1;
+        }
+        $products = Product::latest()->paginate(5);
     
            
     
-        return view('product.index', compact('products'));
+        return view('product.index', compact('products','serialNo'));
     }
 
     /**

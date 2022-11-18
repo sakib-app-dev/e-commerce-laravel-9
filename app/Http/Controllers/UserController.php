@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function home(){
         
-        $products=Product::latest()->paginate(12);
+        $products=Product::with('images')->latest()->paginate(12);
         
         return view('users.index',compact('products'));
     }
@@ -39,9 +39,9 @@ class UserController extends Controller
     public function productList(){
         if($keyword = request('Keyword')){
             // dd($keyword);
-            $products = Product::where('title','LIKE', "%$keyword%")->get();
+            $products = Product::with('images')->where('title','LIKE', "%$keyword%")->latest()->paginate(12);
         }else{
-        $products=Product::all();
+        $products=Product::with('images')->latest()->paginate(12);
         }
         
         return view('users.product-list',compact('products'));

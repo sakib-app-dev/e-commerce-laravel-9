@@ -11,7 +11,7 @@
         <div class="row mt-5">
             <div class="col-md-4">
               @foreach($product->images as $image)
-              <img src="{{ asset('public/storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+              <img src="{{ asset('storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
               @endforeach
             </div>
             <div class="offset-md-2 col-md-6">
