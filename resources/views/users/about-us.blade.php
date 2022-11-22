@@ -7,7 +7,7 @@
 
 
             <div class="about">
-              <img class="about-us" src="{{ asset('/assets/users/images/about.gif') }}" alt="">
+              <img class="about-us" src="{{ asset('public/assets/users/images/about.gif') }}" alt="">
               
           </div>
           <h1 class="heading">About Us</h1>

@@ -18,7 +18,7 @@
                           <div class="card" style="width: 18rem;">
                             
                             @foreach($product->images as $image)
-                                <img src="{{ asset('storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+                                <img src="{{ asset('/public/storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
                               @endforeach  
                             {{-- <img src="{{ asset('storage/images/2022-10-28-product-image-16669328426.jpg') }}" class="card-img-top" alt="..."> --}}
                               <div class="card-body text-center">

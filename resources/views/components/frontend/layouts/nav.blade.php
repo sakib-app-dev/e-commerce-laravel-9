@@ -1,6 +1,6 @@
 <header class="sticky-top">
     <div class="logo">
-        <a class="navbar-brand " href="{{url('/')}}"><img src="{{asset('assets/users/images/logo.png')}}" alt="" class="img-fluid" ></a>
+        <a class="navbar-brand " href="{{url('/')}}"><img src="{{asset('/public/assets/users/images/logo.png')}}" alt="" class="img-fluid" ></a>
     </div>
   <nav class="navbar navbar-expand-lg " style="background-color: orangered;">
       <div class="container-fluid">

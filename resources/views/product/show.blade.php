@@ -7,7 +7,7 @@
         <h1 class="h2 mx-auto">Product Details</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export PDF</button>
+                <button type="button" class="btn btn-sm btn-success">Export PDF</button>
             </div>
             <a href="{{ route('product.index') }}">
                 <button type="button" class="btn btn-sm btn-primary">
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-4">
         @foreach($product->images as $image)
-            <img src="{{ asset('storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+            <img src="{{ asset('public/storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
         @endforeach
     </div>
     <div class="col-md-6">

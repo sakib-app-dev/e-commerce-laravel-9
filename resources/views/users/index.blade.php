@@ -14,21 +14,21 @@
                     </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img height="250px" src="{{ asset('assets/users/') }}/images/banner1.jpg" class="d-block w-100" alt="...">
+                        <img height="250px" src="{{ asset('/public/assets/users/') }}/images/banner1.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block text-start mb-5  ">
                           <p class="text-start fs-3 fw-bold ">70% Off For Friday</p>
                                             <a href="product-list.html" target="_blank"  class="text-white fw-bold btn btn-lg btn-warning p-2">Shop Now</a>
                         </div>
                       </div>
                       <div class="carousel-item ">
-                        <img height="250px" src="{{ asset('assets/users/') }}/images/banner2.jpg" class="d-block w-100" alt="...">
+                        <img height="250px" src="{{ asset('/public/assets/users/') }}/images/banner2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block text-start mb-5">
                           <p class="text-start fs-3 fw-bold text-white  ">70% Off For Friday</p>
                                             <a href="product-list.html" target="_blank"  class="text-dark fw-bold btn btn-lg btn-warning p-2">Shop Now</a>
                         </div>
                       </div>
                       <div class="carousel-item">
-                        <img height="250px" src="{{ asset('assets/users/') }}/images/banner3.jpg" class="d-block w-100" alt="...">
+                        <img height="250px" src="{{ asset('/public/assets/users/') }}/images/banner3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block text-start mb-5">
                           <p class="text-start fs-3 fw-bold  text-white">70% Off For Friday</p>
                                             <a href="product-list.html" target="_blank"  class="text-dark fw-bold btn btn-lg btn-warning p-2">Shop Now</a>
@@ -107,7 +107,7 @@
                             <div class="card" style="width: 18rem;">
                               
                                 @foreach($product->images as $image)
-                                    <img src="{{ asset('storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
+                                    <img src="{{ asset('/public/storage/images/'.$image?->image) }}" class="card-img-top" height="250px" alt="...">
                                 @endforeach
                               
                               
